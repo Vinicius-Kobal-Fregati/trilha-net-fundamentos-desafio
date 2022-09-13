@@ -33,12 +33,10 @@ namespace DesafioFundamentos.Models
                     Console.WriteLine("Digite o preco por hora, ele deve ser positivo.");
                     Decimal.TryParse(Console.ReadLine(), out PrecoPorHora);  
                 }
-                else
-                {
-                    this.PrecoInicial = PrecoInicial;
-                    this.PrecoPorHora = PrecoPorHora;
-                }
             } while (PrecoInicial < 0 || PrecoPorHora < 0);
+
+            this.PrecoInicial = PrecoInicial;
+            this.PrecoPorHora = PrecoPorHora;
         }
 
         /// <summary>
@@ -53,7 +51,7 @@ namespace DesafioFundamentos.Models
 
             if (Veiculos.ContainsKey(placa))
                 Console.WriteLine("Placa já cadastrada, por favor, adicione outra!");
-            else if(ConferePlaca(placa))
+            else if(ConferirPlaca(placa))
             {
                 DateTime horarioEntrada = DateTime.Now;
                 Veiculos.Add(placa, horarioEntrada);
@@ -105,7 +103,10 @@ namespace DesafioFundamentos.Models
                 decimal valorTotal = PrecoInicial + PrecoPorHora * horas;
 
                 Veiculos.Remove(placa);
-                Console.WriteLine($"O veículo {placa} foi removido, ele ficou estacionado por {horas} horas. O preço total foi de: R$ {valorTotal.ToString("0.00")}");
+                if (horas != 1)
+                    Console.WriteLine($"O veículo {placa} foi removido, ele ficou estacionado por {horas} horas. O preço total foi de: R$ {valorTotal.ToString("0.00")}");
+                else
+                    Console.WriteLine($"O veículo {placa} foi removido, ele ficou estacionado por 1 hora. O preço total foi de: R$ {valorTotal.ToString("0.00")}");
             }
             else
                 Console.WriteLine("Desculpe, esse veículo não está estacionado aqui. Confira se digitou a placa corretamente");
@@ -138,7 +139,7 @@ namespace DesafioFundamentos.Models
         /// </summary>
         /// <param name="placa">Placa do veículo que deseja verificar.</param>
         /// <returns></returns>
-        public bool ConferePlaca(string placa)
+        public bool ConferirPlaca(string placa)
         {
             Regex padraoDePlacaAntigo = new Regex("^[A-Za-z]{3}-[0-9]{4}$");
             Regex padraoDePlacaNovo = new Regex("^[A-Za-z]{3}[0-9][A-Za-z][0-9]{2}$");
