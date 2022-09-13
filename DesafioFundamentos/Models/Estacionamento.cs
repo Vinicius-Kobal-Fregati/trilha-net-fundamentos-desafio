@@ -19,24 +19,24 @@ namespace DesafioFundamentos.Models
         /// </summary>
         /// <param name="PrecoInicial">Indica quanto que deve pagar para o veículo adentrar no estacionamento.</param>
         /// <param name="PrecoPorHora">Indica qual valor será cobrado por hora que o veículo permaneceu no estacionamento.</param>
-        public Estacionamento(decimal PrecoInicial, decimal PrecoPorHora)
+        public Estacionamento(decimal precoInicial, decimal precoPorHora)
         {
             do
             {
-                if(PrecoInicial < 0)
+                if(precoInicial < 0)
                 {
                     Console.WriteLine("Digite o preco inicial, ele deve ser positivo.");
-                    Decimal.TryParse(Console.ReadLine(), out PrecoInicial); // Evita o FormatException
+                    Decimal.TryParse(Console.ReadLine(), out precoInicial); // Evita o FormatException
                 }
-                if(PrecoPorHora < 0)
+                if(precoPorHora < 0)
                 {
                     Console.WriteLine("Digite o preco por hora, ele deve ser positivo.");
-                    Decimal.TryParse(Console.ReadLine(), out PrecoPorHora);  
+                    Decimal.TryParse(Console.ReadLine(), out precoPorHora);  
                 }
-            } while (PrecoInicial < 0 || PrecoPorHora < 0);
+            } while (precoInicial < 0 || PrecoPorHora < 0);
 
-            this.PrecoInicial = PrecoInicial;
-            this.PrecoPorHora = PrecoPorHora;
+            this.PrecoInicial = precoInicial;
+            this.PrecoPorHora = precoPorHora;
         }
 
         /// <summary>
