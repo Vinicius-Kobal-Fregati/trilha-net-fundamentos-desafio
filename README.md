@@ -54,7 +54,7 @@ Com a modificação  da variável Veiculos, é possível realizar a conta de hor
 Caso o usuário deseje inserir o tempo manualmente, será verificado se o valor não é negativo, caso seja, entra em loop até ser válido.
 
  - ### Substituição na forma de converter o Console.Readline()
-Inicialmente, era utilizado o Convert, testando verifiquei que para valores inválidos, ocorriam muitas exceções, que alteravam o fluxo do código, e como não encontravam um tratamento, quebravam o código. Uma forma que encontrei para evitar essas exceções foi converter o tipo do Readline (string) utilizando o TryParsem assim, se for possível, o valor da variável será atualizado, caso não, ele será mantido como está (normalmente, valendo zero).
+Inicialmente, era utilizado o Convert, testando verifiquei que para valores inválidos, ocorriam muitas exceções, que alteravam o fluxo do código, e como não encontravam um tratamento, quebravam o código. Uma forma que encontrei para evitar essas exceções foi converter o tipo do Readline (string) utilizando o TryParse assim, se for possível, o valor da variável será atualizado, caso não, ele será mantido como está (normalmente, valendo zero).
 
  - ### Adição de lógica no construtor
 Inicialmente, era possível adicionar valores negativos para os parâmetros precoInicial e precoPorHora, agora, caso alguns deles seja, entrará em loop até estar da forma correta (positivo).
