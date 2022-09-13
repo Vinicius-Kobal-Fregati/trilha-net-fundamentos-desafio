@@ -138,7 +138,7 @@ namespace DesafioFundamentos.Models
         /// Confere a validez da placa, aceitando o modelo antigo (AAA-1111) e novo (AAA1A11).
         /// </summary>
         /// <param name="placa">Placa do veículo que deseja verificar.</param>
-        /// <returns></returns>
+        /// <returns>Seu retorno é um booleano, caso a placa seja compatível com o padrão, retorna true, caso não, false</returns>
         public bool ConferirPlaca(string placa)
         {
             Regex padraoDePlacaAntigo = new Regex("^[A-Za-z]{3}-[0-9]{4}$");
